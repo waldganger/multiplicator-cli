@@ -9,7 +9,7 @@ function initLimite(): Date {
 
 function addTimeBonus(limite: Date, bonus: number): Date {
   const nouvelleLimite: Date = new Date(limite.getTime() + bonus);
-  return limite;
+  return nouvelleLimite;
 }
 
 export { random, initLimite, addTimeBonus };
