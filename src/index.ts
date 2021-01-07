@@ -6,18 +6,20 @@ const BONUS = 2000;
 let limite = initLimite();
 let score = 0;
 
+// console.clear();
+
 while (Date.now() < limite.getTime()) {
   const op1 = random(2, 9);
   const op2 = random(2, 9);
   const produit = op1 * op2;
   const reponse = readline.questionInt(`Combien font ${op1} * ${op2} ?\n`);
   if (reponse === produit) {
-    console.clear();
+    // console.clear();
     console.log("Gut. Bonus : 2s.");
     score++;
     limite = addTimeBonus(limite, BONUS);
   } else {
-    console.clear();
+    // console.clear();
     console.log(`NEIN NEIN NEIN : ${produit}`);
   }
   const tempRestant = Math.floor((limite.getTime() - Date.now()) / 1000);
@@ -28,4 +30,5 @@ while (Date.now() < limite.getTime()) {
 console.log("Fin de la partie.");
 console.log("Score : " + score);
 
+readline.keyInPause("Quitter...");
 process.exit(0);

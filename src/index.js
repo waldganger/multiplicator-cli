@@ -8,19 +8,20 @@ const lib_1 = require("./lib");
 const BONUS = 2000;
 let limite = lib_1.initLimite();
 let score = 0;
+// console.clear();
 while (Date.now() < limite.getTime()) {
     const op1 = lib_1.random(2, 9);
     const op2 = lib_1.random(2, 9);
     const produit = op1 * op2;
     const reponse = readline_sync_1.default.questionInt(`Combien font ${op1} * ${op2} ?\n`);
     if (reponse === produit) {
-        console.clear();
+        // console.clear();
         console.log("Gut. Bonus : 2s.");
         score++;
         limite = lib_1.addTimeBonus(limite, BONUS);
     }
     else {
-        console.clear();
+        // console.clear();
         console.log(`NEIN NEIN NEIN : ${produit}`);
     }
     const tempRestant = Math.floor((limite.getTime() - Date.now()) / 1000);
@@ -28,4 +29,5 @@ while (Date.now() < limite.getTime()) {
 }
 console.log("Fin de la partie.");
 console.log("Score : " + score);
+readline_sync_1.default.keyInPause("Quitter...");
 process.exit(0);
